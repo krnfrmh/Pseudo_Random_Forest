@@ -16,3 +16,13 @@ class PseudoRandomForest:
 
     self.models = []
     self.features = []
+    for b in range(self.B):
+      tree = DecisionTreeClassifier()
+
+      # Features sampling
+      features = np.random.choice(D, size=M, replace=False)
+
+      # Row sampling
+      idx = np.random.choice(N, size=N, replace=True)
+      Xb = X[idx]
+      Yb = Y[idx]
