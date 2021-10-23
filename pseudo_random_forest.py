@@ -26,3 +26,6 @@ class PseudoRandomForest:
       idx = np.random.choice(N, size=N, replace=True)
       Xb = X[idx]
       Yb = Y[idx]
+      tree.fit(Xb[:, features], Yb)
+      self.features.append(features)
+      self.models.append(tree)
