@@ -29,3 +29,11 @@ class PseudoRandomForest:
       tree.fit(Xb[:, features], Yb)
       self.features.append(features)
       self.models.append(tree)
+
+  def predict(self, X):
+    N = len(X)
+    P = np.zeros(N)
+    for features, tree in zip(self.features, self.models):
+      P += tree.predict(X[:, features])
+    return np.round(P / self.B)
+  
