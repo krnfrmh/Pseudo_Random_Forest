@@ -37,3 +37,7 @@ class PseudoRandomForest:
       P += tree.predict(X[:, features])
     return np.round(P / self.B)
   
+  def score(self, X, Y):
+    P = self.predict(X)
+    return np.mean(P == Y)
+  
