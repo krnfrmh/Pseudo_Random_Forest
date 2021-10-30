@@ -13,3 +13,7 @@ class BaggedTree:
       idx = np.random.choice(N, size=N, replace=True)
       Xb = X[idx]
       Yb = Y[idx]
+      # Let DecisionTree grow arbitrary deep - high variance
+      model = DecisionTreeClassifier()
+      model.fit(Xb, Yb)
+      self.models.append(model)
