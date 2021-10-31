@@ -17,3 +17,9 @@ class BaggedTree:
       model = DecisionTreeClassifier()
       model.fit(Xb, Yb)
       self.models.append(model)
+      
+  def predict(self, X):
+    predictions = np.zeros(len(X))
+    for model in self.models:
+      predictions += model.predict(X)
+    return np.round(predictions / self.B)
