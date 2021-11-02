@@ -23,3 +23,8 @@ class BaggedTree:
     for model in self.models:
       predictions += model.predict(X)
     return np.round(predictions / self.B)
+
+  def score(self, X, Y):
+    P = self.predict(X)
+    return np.mean(Y == P)
+  
