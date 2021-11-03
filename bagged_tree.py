@@ -28,3 +28,5 @@ class BaggedTree:
     P = self.predict(X)
     return np.mean(Y == P)
   
+model = BaggedTreeClassifier(100)
+model.fit(X, Y)
