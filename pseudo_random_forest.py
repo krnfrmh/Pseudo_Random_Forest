@@ -41,3 +41,7 @@ class PseudoRandomForest:
     P = self.predict(X)
     return np.mean(P == Y)
   
+
+model = PseudoRandomForest(200)
+model.fit(X, Y)
+
