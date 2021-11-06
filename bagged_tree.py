@@ -30,3 +30,5 @@ class BaggedTree:
   
 model = BaggedTreeClassifier(100)
 model.fit(X, Y)
+
+print("score for bagged model:", model.score(X, Y))
